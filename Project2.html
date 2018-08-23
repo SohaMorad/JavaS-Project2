@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSON</title>
+
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    
+var users=[];
+axios.get("https://jsonplaceholder.typicode.com/users")
+.then(function(response){
+	
+	users = response.data;
+	
+	let showData="";
+	
+	for(var i=0; i < users.length ; i++){
+		//document.write(users[i].name+" "+ users[i].email + "<br>");
+	
+		showData = showData + "<div class='col-lg-4 text-center' id='cols'><br><br><div class='card' id='cards'><br><img src='images/pic6.jpg' height='350' width='350' alt='img1' id='img1' class='img-circle'></div><br>"+"Name: " +users[i].name+"<br>"+"User Name: " +users[i].username + "<br>"+"Email Adress: " +users[i].email +"<br><a href='#' class='btn btn-primary'>See Profile</a></div>"
+		
+	
+	}
+	
+	document.getElementById("data").innerHTML= showData;
+	
+});
+</script>
+<style>
+#col1{
+margin-left:15px;
+}
+#data{
+color:#8f8d8d;
+font-weight:bold;
+font-family: "Times New Roman", Times, serif;
+margin:auto;
+
+}
+#nav1{
+float:right;
+}
+
+
+
+
+#container{
+margin:auto;
+
+}
+#cards{
+background-color:#76a2c9;
+border:5px solid #3d3f41;
+
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	font-size:55px;
+	color:white;
+}
+
+#img1{
+margin-bottom:15px;
+
+}
+#footir{
+background-color:#3d3f41;
+color:white;
+
+
+}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+	   <div class="col-md-3">
+	  <img src="images/logo.png" height="50" width="50" alt="logo">
+	  </div>
+	  <div class="col-md-9">
+	  <a class="navbar-brand" href="#">RAMA TECKNOLOGY</a>
+	  </div>
+    </div>
+    <ul class="nav navbar-nav" id="nav1">
+      <li class="active"><a href="#">Users Informations</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+   
+<div class="row w3-container w3-center w3-animate-top">
+<img src="images/pic1.jpg" height="400" style="width:100%" alt="img1">
+  <div class="centered">USERS INFORMATIONS</div> 
+</div>
+    <br>
+    <br>	
+             
+			
+			 <div class="row" id="container">
+    <div class="row" id="data">
+            
+		  </div>
+		  </div>
+ 
+   <br>
+   <footer class="text-center" id="footir">&copy;2018 RAMA TECKNOLOGY</footer>
+</body>
+</html>
